@@ -17,7 +17,7 @@ import Header from './Header/Header';
 import System from '../routes/System';
 
 import { CustomToastCloseButton } from '../components/CustomToast';
-import HomePage from'./HomePage/HomePage.js';
+import HomePage from './HomePage/HomePage.js';
 
 class App extends Component {
 
@@ -53,7 +53,7 @@ class App extends Component {
                                 <Route path={path.HOMEPAGE} component={HomePage} />
                             </Switch>
                         </span>
-            
+
                         <ToastContainer
                             className="toast-container" toastClassName="toast-item" bodyClassName="toast-item-body"
                             autoClose={false} hideProgressBar={true} pauseOnHover={false}
@@ -70,7 +70,7 @@ class App extends Component {
 const mapStateToProps = state => {
     return {
         started: state.app.started,
-        isLoggedIn: state.admin.isLoggedIn
+        isLoggedIn: state.user.isLoggedIn
     };
 };
 
