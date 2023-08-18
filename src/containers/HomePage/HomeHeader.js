@@ -74,7 +74,7 @@ class HomeHeader extends Component {
 
                             <div className="options-child">
                                 <div className="icon-child">
-                                    <i class="fas fa-flask"></i></div>
+                                    <i className="fas fa-flask"></i></div>
                                 <div className="text-child"><b><FormattedMessage id="banner.child4" /></b></div>
                             </div>
 
