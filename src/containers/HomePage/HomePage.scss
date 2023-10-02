@@ -1,0 +1,127 @@
+//reset slick silder css
+
+.slick-prev{
+    height: 48px !important;
+    width: 44px !important;
+    left: -20px !important;
+    z-index: 1000 !important;
+    background: #49bce2 !important;
+    opacity: 0.7;
+    border-radius: 10px;
+    &:hover{
+        opacity: 1;
+    }
+}
+.slick-next{
+    height: 48px !important;
+    width: 44px !important;
+    right: -30px !important;
+    z-index: 1000 !important;
+    margin-right: 30px !important;
+    background: #49bce2 !important;
+    opacity: 0.7;
+    border-radius: 7px;
+    &:hover{
+        opacity: 1;
+    }
+}
+
+
+.section-share{
+    &.section-specialty{
+        background: #f5f5f5;
+    }
+    
+    &.section-outstanding-doctor{
+        background: #f5f5f5;
+    }
+    .section-body{
+                    
+        .section-customize{
+            .bg-img{
+                width: 290px;
+                height: 170px;
+                border: 1px solid #f5f5f5;
+                background-position: center center;
+                background-repeat: no-repeat ;
+                background-color: cover;
+                background-size: #eee;
+
+                &.section-specialty{
+                    background-image: url('../../assets/specialty/noi-khoa.jpg');
+                }
+
+                &.section-medical-facility{
+                    background-image: url('../../assets/medical-facility/benh-vien-cho-ray-moi.jpg');
+                }
+                &.section-outstanding-doctor{
+                    background-image: url('../../assets/outstanding-doctor/bs-vi.jpg');
+                    width: 120px;
+                    height: 120px;
+                    border-radius: 50%;
+                }
+                &.section-handbook{
+                    background-image: url('../../assets/handbook/tieu-duong-tuyp-2-nen-va-khong-nen-an-gi-p2-utube.png');
+                }
+            }           
+        }  
+    }  
+}
+
+.section-share{
+    height: 350px;
+
+    .section-container{
+        margin: 0 130px;
+        display: flex;
+        flex-direction: column;
+
+        .section-header{
+            height: 60px;
+            margin-bottom: 30px;
+            padding-top: 30px;
+
+            .title-section{
+                font-size: 22px;
+                font-weight: 600;           
+            }
+
+            .btn-section{ 
+                float: right;
+                padding:10px 10px;
+                border: none;
+                display: block;
+                outline: none;
+                background: wheat;
+                color: black;
+                cursor: pointer;
+                text-transform: uppercase;
+                border-radius: 4px;
+                &:hover{
+                    background: #49bce2;
+                    color: black ;
+                }
+            }
+        } 
+    }
+}
+
+
+.section-outstanding-doctor{
+    .outer-bg{
+        display: flex;
+        justify-content: center;
+        margin-bottom: 10px;
+        
+    }
+
+    .section-customize{
+        padding: 5px;
+
+        .customize-border{
+            // border: 1px solid red;
+            padding: 20px;
+           
+        }
+    }
+}

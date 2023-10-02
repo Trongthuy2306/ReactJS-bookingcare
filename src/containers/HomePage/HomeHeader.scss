@@ -64,20 +64,36 @@
                 }
             }
 
-            .languge-vi{
+            .language-vi{
                 cursor: pointer;
-
-                &.active{
-                    color: orange;
+                opacity: 0.6;
+                color: orange;      
+                &.action{
+                    opacity: 1;
+                    span{
+                        color: orange;
+                    }  
+                }
+                &:hover{
+                    opacity: 1;
+                    
                 }
             }
 
-            .languge-en{
+            .language-en{
                 margin: 0 10px;
                 cursor: pointer;
-
-                &.active{
-                    color: blue;
+                opacity: 0.6;
+                color: blue;
+                &.action{
+                   opacity: 1;
+                    span{
+                        color: blue;
+                    }
+                    
+                }
+                &:hover{
+                    opacity: 1;
                 }
             }
         }
@@ -141,6 +157,7 @@
         
         .content-down{
             height: 35%;
+            padding-bottom: 10px;
             display: flex;
             align-items: flex-end;
             justify-content: center;
