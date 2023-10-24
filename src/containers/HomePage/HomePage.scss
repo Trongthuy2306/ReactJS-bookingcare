@@ -26,7 +26,9 @@
     }
 }
 
-
+.slick-disable{
+    display: none !important;
+}
 .section-share{
     &.section-specialty{
         background: #f5f5f5;
@@ -34,6 +36,12 @@
     
     &.section-outstanding-doctor{
         background: #f5f5f5;
+    }
+
+    &.section-about{
+        border-top: 1px solid #f5f5f5;
+        border-bottom: 1px solid #f5f5f5;
+        height: 500px !important;
     }
     .section-body{
                     
@@ -55,7 +63,7 @@
                     background-image: url('../../assets/medical-facility/benh-vien-cho-ray-moi.jpg');
                 }
                 &.section-outstanding-doctor{
-                    background-image: url('../../assets/outstanding-doctor/bs-vi.jpg');
+                    // background-image: url('../../assets/outstanding-doctor/bs-vi.jpg');
                     width: 120px;
                     height: 120px;
                     border-radius: 50%;
@@ -63,6 +71,9 @@
                 &.section-handbook{
                     background-image: url('../../assets/handbook/tieu-duong-tuyp-2-nen-va-khong-nen-an-gi-p2-utube.png');
                 }
+
+                
+                
             }           
         }  
     }  
@@ -106,7 +117,6 @@
     }
 }
 
-
 .section-outstanding-doctor{
     .outer-bg{
         display: flex;
@@ -117,11 +127,45 @@
 
     .section-customize{
         padding: 5px;
+        cursor: pointer;
 
         .customize-border{
-            // border: 1px solid red;
+            border: 1px solid orange;
             padding: 20px;
            
+        }
+    }
+}
+
+.home-footer{
+    text-align: center;
+    
+    padding-top:8px;
+    a{
+        text-decoration: unset;
+    }
+}
+
+.section-about{
+    margin: 0 100px;
+    .section-about-header{
+        padding:20px 10px;
+        font-size: 22px;
+        font-weight: 600;
+    }
+}
+.section-about-content{
+    display: flex;
+    gap: 15px;
+    width: 100%;
+    .content-left{
+        width: 60%;
+    }
+    .content-right{
+        width: 40%;
+        p{
+            text-align: justify;
+            font-style: italic;
         }
     }
 }
