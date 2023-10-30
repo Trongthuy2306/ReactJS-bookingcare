@@ -266,7 +266,7 @@ export const saveDetailDoctor = (data) => {
     return async (dispatch, getState) => {
         try {
             let res = await saveDetailDoctorService(data);
-            console.log('chech res redux save doctor', res)
+            console.log('chech res redux save doctor:', res)
             if (res && res.errCode === 0) {
                 toast.success("Save detail infor doctor success!");
                 dispatch({
@@ -283,6 +283,30 @@ export const saveDetailDoctor = (data) => {
             toast.error("Save detail infor doctor error!");
             dispatch({
                 type: actionTypes.SAVE_DETAIL_DOCTOR_FAILDED
+            })
+
+        }
+    }
+}
+
+export const fecthAllScheduleTime = () => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await getAllCodeService('TIME');
+            if (res && res.errCode === 0) {
+                dispatch({
+                    type: actionTypes.FETCH_ALLCODE_SCHEDULE_TIME_SUCCESS,
+                    dataTime: res.data
+                })
+            } else {
+                dispatch({
+                    type: actionTypes.FETCH_ALLCODE_SCHEDULE_TIME_FAILDED
+                })
+            }
+        } catch (e) {
+            console.log('FETCH_ALLCODE_SCHEDULE_TIME_FAILDED:', e)
+            dispatch({
+                type: actionTypes.FETCH_ALLCODE_SCHEDULE_TIME_FAILDED
             })
 
         }

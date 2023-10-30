@@ -14,12 +14,6 @@ const persistCommonConfig = {
     stateReconciler: autoMergeLevel2,
 };
 
-// const adminPersistConfig = {
-//     ...persistCommonConfig,
-//     key: 'admin',
-//     whitelist: ['isLoggedIn', 'adminInfo']
-// };
-
 const userPersistConfig = {
     ...persistCommonConfig,
     key: 'user',
