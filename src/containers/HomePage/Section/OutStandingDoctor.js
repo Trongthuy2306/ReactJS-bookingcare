@@ -70,7 +70,6 @@ class OutStandingDoctor extends Component {
                                         </div>
                                     );
                                 })
-
                             }
                         </Slider>
                     </div>

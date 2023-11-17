@@ -4,7 +4,7 @@
     height: 48px !important;
     width: 44px !important;
     left: -20px !important;
-    z-index: 1000 !important;
+    z-index: 10 !important;
     background: #49bce2 !important;
     opacity: 0.7;
     border-radius: 10px;
@@ -16,7 +16,7 @@
     height: 48px !important;
     width: 44px !important;
     right: -30px !important;
-    z-index: 1000 !important;
+    z-index: 10 !important;
     margin-right: 30px !important;
     background: #49bce2 !important;
     opacity: 0.7;
@@ -56,7 +56,7 @@
                 background-size: #eee;
 
                 &.section-specialty{
-                    background-image: url('../../assets/specialty/noi-khoa.jpg');
+                    // background-image: url('../../assets/specialty/noi-khoa.jpg');
                 }
 
                 &.section-medical-facility{

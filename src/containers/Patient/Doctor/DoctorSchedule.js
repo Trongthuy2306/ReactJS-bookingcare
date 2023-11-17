@@ -5,46 +5,73 @@ import moment, { lang } from 'moment';
 import localization from 'moment/locale/vi'
 import { LANGUAGES } from '../../../utils';
 import { getScheduleDoctorByDate } from '../../../services/userService';
-
+import { FormattedMessage } from 'react-intl';
+import BookingModal from './Modal/BookingModal';
 class DoctorSchedule extends Component {
 
     constructor(props) {
         super(props)
         this.state = {
             allDays: [],
-            allAvalableTime: []
+            allAvalableTime: [],
+            isOpenModalBooking: false,
+            dataScheduleTimeModal: {}
         }
     }
     async componentDidMount() {
         let { language } = this.props;
-        console.log('moment vi:', moment(new Date()).format('dddd-DD/MM'));
-        console.log('moment en:', moment(new Date()).locale('ddd-DD/MM'));
-        this.setArrDays(language);
-    }
-    //viet hoa chu dau
-    capitalizeFirstLetter(string) {
-        return string.charAt(0).toUpperCase() + string.slice(1);
-    }
-    setArrDays = (language) => {
-        let allDays = [];
-        for (let i = 0; i < 7; i++) {
-            let obj = {};
-            if (language === LANGUAGES.VI) {
-                let labelVi = moment(new Date()).add(i, 'days').format('dddd - DD/MM');
-                obj.label = this.capitalizeFirstLetter(labelVi)
-            } else {
-                obj.label = moment(new Date()).add(i, 'days').locale('en').format('ddd - DD/MM');
-            }
-            obj.value = moment(new Date()).add(i, 'days').startOf('day').valueOf();
-            allDays.push(obj);
-        }
+        let allDays = this.getArrDays(language);
         this.setState({
             allDays: allDays,
         })
     }
-    componentDidUpdate(prevProps, prevState, snapshot) {
+
+    //viet hoa chu dau
+    capitalizeFirstLetter(string) {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    }
+
+    getArrDays = (language) => {
+        let allDays = [];
+        for (let i = 0; i < 7; i++) {
+            let obj = {};
+            if (language === LANGUAGES.VI) {
+                if (i === 0) {
+                    let ddMM = moment(new Date()).format('DD/MM');
+                    let today = `Hôm nay - ${ddMM}`;
+                    obj.label = today;
+                } else {
+                    let labelVi = moment(new Date()).add(i, 'days').format('dddd - DD/MM');
+                    obj.label = this.capitalizeFirstLetter(labelVi)
+                }
+
+            } else {
+                if (i === 0) {
+                    let ddMM = moment(new Date()).format('DD/MM');
+                    let today = `To day - ${ddMM}`;
+                    obj.label = today;
+                } else {
+                    obj.label = moment(new Date()).add(i, 'days').locale('en').format('ddd - DD/MM');
+                }
+            }
+            obj.value = moment(new Date()).add(i, 'days').startOf('day').valueOf();
+            allDays.push(obj);
+        }
+        return allDays;
+    }
+    async componentDidUpdate(prevProps, prevState, snapshot) {
         if (this.props.language !== prevProps.language) {
-            this.setArrDays(this.props.language);
+            let allDays = this.getArrDays(this.props.language);
+            this.setState({
+                allDays: allDays
+            })
+        }
+        if (this.props.doctorIdFromParent !== prevProps.doctorIdFromParent) {
+            let allDays = this.getArrDays(this.props.language);
+            let res = await getScheduleDoctorByDate(this.props.doctorIdFromParent, allDays[0].value);
+            this.setState({
+                allAvalableTime: res.data ? res.data : []
+            })
         }
     }
     handleOnchangeSelect = async (event) => {
@@ -63,9 +90,23 @@ class DoctorSchedule extends Component {
 
         }
     }
+
+    handleClickScheduleTime = (time) => {
+        this.setState({
+            isOpenModalBooking: true,
+            dataScheduleTimeModal: time
+        })
+        console.log('Check time:', time)
+    }
+
+    closeBookingClose = () => {
+        this.setState({
+            isOpenModalBooking: false
+        })
+    }
     render() {
         let { language } = this.props;
-        let { allDays, allAvalableTime } = this.state;
+        let { allDays, allAvalableTime, isOpenModalBooking, dataScheduleTimeModal } = this.state;
         return (
             <>
                 <div className='doctor-schedule-container'>
@@ -87,26 +128,45 @@ class DoctorSchedule extends Component {
                     </div>
                     <div className='all-available-time'>
                         <div className='text-calendar'>
-                            <i className='fas fa-calendar-alt'><span>   Lịch khám </span></i>
+                            <i className='fas fa-calendar-alt'><span><FormattedMessage id='patient.detail-doctor.schedule' /></span></i>
                         </div>
                         <div className='time-content'>
                             {allAvalableTime && allAvalableTime.length > 0 ?
-                                allAvalableTime.map((item, index) => {
-                                    let timeDisplay = language === LANGUAGES.VI ?
-                                        item.timeTypeData.valueVi : item.timeTypeData.valueEn;
-                                    console.log('a', timeDisplay)
-                                    return (
-
-                                        <button key={index}>{timeDisplay}</button>
-                                    )
-                                })
+                                <>
+                                    <div className='time-content-btns'>
+                                        {allAvalableTime.map((item, index) => {
+                                            let timeDisplay = language === LANGUAGES.VI ?
+                                                item.timeTypeData.valueVi : item.timeTypeData.valueEn;
+                                            return (
+                                                <button key={index} className={language === LANGUAGES.VI ? 'btn-vie' : 'btn-en'}
+                                                    onClick={() => this.handleClickScheduleTime(item)}
+                                                >{timeDisplay}</button>
+                                            )
+                                        })
+                                        }
+                                    </div>
+                                    <div className='book-free'>
+                                        <span>
+                                            <FormattedMessage id='patient.detail-doctor.choose' />
+                                            <i className='fas fa-hand-point-up'></i>
+                                            <FormattedMessage id='patient.detail-doctor.book-free' />
+                                        </span>
+                                    </div>
+                                </>
                                 :
-                                <div>Không có lịch hẹn trong thời gian này, vui lòng chọn thời gian khác!</div>
+                                <div className='no-schedule'>
+                                    <FormattedMessage id='patient.detail-doctor.no-schedule' />
+                                </div>
                             }
                         </div>
                     </div>
 
                 </div>
+                <BookingModal
+                    isOpenModal={isOpenModalBooking}
+                    closeBookingClose={this.closeBookingClose}
+                    dataTime={dataScheduleTimeModal}
+                />
             </>
         );
     }
