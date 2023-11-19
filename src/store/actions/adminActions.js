@@ -221,7 +221,6 @@ export const fetchTopDoctor = () => {
     return async (dispatch, getState) => {
         try {
             let res = await getTopDoctorHomeService('');
-            console.log('chekc res redux top doctor', res)
             if (res && res.errCode === 0) {
                 dispatch({
                     type: actionTypes.FETCH_TOP_DOCTOR_SUCCESS,

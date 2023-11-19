@@ -1,8 +1,9 @@
 .detail-specialty-container{
     .description-specialty{
-        border: 1px solid red;
-        height: 200px;
+    
     }
+
+    .search-sp-doctor{}
 
     .detail-specialty-body{
         margin: 0 100px;
@@ -19,6 +20,10 @@
         box-shadow: 0 1px 6px #20212447;
         border-radius: 8px;
 
+        .dt-content-left{
+            width: 50%;
+            border-right: 1px solid #ddd;
+        }
         .dt-content-right{
             width: 50%;
             padding: 10px;

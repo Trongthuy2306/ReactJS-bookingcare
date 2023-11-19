@@ -10,8 +10,6 @@ import { withRouter } from 'react-router';
 class HomeHeader extends Component {
     changeLanguage = (language) => {
         this.props.changeLanguageAppRedux(language)
-        //fire redux event :actions
-        console.log('check language:', language)
     }
     returnToHome = () => {
         if (this.props.history) {

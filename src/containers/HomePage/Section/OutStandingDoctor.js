@@ -29,7 +29,6 @@ class OutStandingDoctor extends Component {
         }
     }
     render() {
-        console.log('check top doctor redux :', this.props.topDoctorsRedux)
         let arrDoctors = this.state.arrDoctors;
         let { language } = this.props;
         arrDoctors = arrDoctors.concat(arrDoctors).concat(arrDoctors);
