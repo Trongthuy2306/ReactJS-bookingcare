@@ -16,6 +16,9 @@ export const adminMenu = [
             // },
             {//quan li ke hoach kham benh
                 name: 'menu.doctor.manage-schedule', link: '/doctor/manage-schedule'
+            },
+            {//quan li benh nhan kham benh cua bac si
+                name: 'menu.doctor.manage-patient', link: '/doctor/manage-patient'
             }
         ]
     },

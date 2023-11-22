@@ -1,60 +1,59 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import './Medicalfacility.scss';
+import './Specialty.scss';
 import { FormattedMessage } from 'react-intl';
 import Slider from 'react-slick';
-import { getAllClinic } from '../../../services/userService';
+import { getAllSpecialty } from '../../../services/userService';
 import { withRouter } from 'react-router';
-class Medicalfacility extends Component {
+class Specialty extends Component {
     constructor(props) {
-        super(props)
+        super(props);
+
         this.state = {
-            dataClinics: []
+            dataSpecialty: []
         }
     }
     async componentDidMount() {
-        let res = await getAllClinic();
-        console.log('check res clinic: ', res)
+        let res = await getAllSpecialty();
         if (res && res.errCode === 0) {
             this.setState({
-                dataClinics: res.data ? res.data : []
+                dataSpecialty: res.data ? res.data : []
             })
         }
+    }
 
-    }
-    handleViewDetailClinic = (clinic) => {
-        if (this.props.history) {
-            this.props.history.push(`/detail-clinic/${clinic.id}`)
-        }
-    }
     componentDidUpdate(prevProps, prevState, snapshot) {
         if (this.props.language !== prevProps.language) {
 
         }
     }
-
+    handleViewDetailSpecialty = (item) => {
+        if (this.props.history) {
+            this.props.history.push(`/detail-specialty/${item.id}`)
+        }
+    }
     render() {
-        let { dataClinics } = this.state;
+        let { dataSpecialty } = this.state;
         return (
-            <div className='section-share section-medical-facility'>
+            <div className='section-share section-specialty'>
                 <div className='section-container'>
                     <div className='section-header'>
-                        <span className='title-section'>Cơ sở ý tế nổi bật</span>
-                        <button className='btn-section'>Xem thêm</button>
+                        <span className='title-section'><FormattedMessage id='homepage.specialty-popular' /></span>
+                        <button className='btn-section'><FormattedMessage id='homepage.more-infor' /></button>
                     </div>
                     <div className='section-body'>
                         <Slider {...this.props.settings}>
-                            {dataClinics && dataClinics.length > 0 &&
-                                dataClinics.map((item, index) => {
+                            {dataSpecialty && dataSpecialty.length > 0 &&
+                                dataSpecialty.map((item, index) => {
                                     return (
-                                        <div className="section-customize clinic-child"
+                                        <div className="section-customize specialty-child"
                                             key={index}
-                                            onClick={() => this.handleViewDetailClinic(item)}
+                                            onClick={() => this.handleViewDetailSpecialty(item)}
                                         >
-                                            <div className="bg-img section-medical-facility"
+                                            <div className="bg-img section-specialty"
                                                 style={{ backgroundImage: `url(${item.image})` }}
                                             />
-                                            <div className='clinic-name'>{item.name}</div>
+                                            <div className='specialty-name'>{item.name}</div>
                                         </div>
                                     )
                                 })
@@ -71,7 +70,8 @@ class Medicalfacility extends Component {
 
 const mapStateToProps = state => {
     return {
-        isLoggedIn: state.user.isLoggedIn
+        isLoggedIn: state.user.isLoggedIn,
+        languge: state.app.languge,
     };
 };
 
@@ -80,4 +80,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Medicalfacility));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Specialty));

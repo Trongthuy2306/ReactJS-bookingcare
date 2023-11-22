@@ -10,11 +10,10 @@ const flattenMessages = ((nestedMessages, prefix = '') => {
         const prefixedKey = prefix ? `${prefix}.${key}` : key;
 
         if (typeof value === 'string') {
-            Object.assign(messages, {[prefixedKey]: value})
+            Object.assign(messages, { [prefixedKey]: value })
         } else {
             Object.assign(messages, flattenMessages(value, prefixedKey))
         }
-
         return messages
     }, {})
 });
