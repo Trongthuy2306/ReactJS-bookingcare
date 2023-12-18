@@ -23,11 +23,11 @@
     },
     "menu": {
         "admin": {
-            "manage-user": "Người dùng",
+            "manage-user": "Quản lí",
             "manage-doctor": "Quản lí bác sĩ",
             "manage-admin": "Quản lí admin",
             "crud": "CRUD user",
-            "crud-redux": "CRUD Redux",
+            "crud-redux": "Thêm bác sĩ",
             "clinic": "Phòng khám",
             "manage-clinic": "Quản lí phòng khám",
             "specialty": "Chuyên khoa",
@@ -56,9 +56,10 @@
         "edit": "Lưu thay đổi"
     },
     "homepage": {
-        "outstanding-doctor": "Bác sĩ nổi bật tuần qua",
+        "outstanding-doctor": "BÁC SĨ NỔI BẬT",
         "more-infor": "Xem thêm",
-        "specialty-popular": "Chuyên khoa phổ biến"
+        "specialty-popular": "CHUYÊN KHOA PHỔ BIẾN",
+        "outstanding-facilities": "CƠ SỞ Y TẾ NỔI BẬT"
     },
     "manage-schedule": {
         "title": "Quản lí kế hoạch khám bệnh của bác sĩ",

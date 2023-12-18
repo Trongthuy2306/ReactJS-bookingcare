@@ -9,9 +9,11 @@ class HomeFooter extends Component {
     render() {
 
         return (
-            <div className='home-footer'>
-                <p>&copy;2023 Booking by TRONGTHUY. More infomation, please visit my FB.<a target='_blank' href='https://www.facebook.com/'>&#8594; Click here &#8592;.</a></p>
-            </div>
+            <>
+                <div className='home-footer'>
+                    <p>&copy;2023 Booking by Booking Care. More infomation, please visit my FB.<a target='_blank' href='https://www.facebook.com/'>&#8594; Click here &#8592;.</a></p>
+                </div>
+            </>
         );
     }
 

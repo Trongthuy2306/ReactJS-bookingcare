@@ -5,12 +5,21 @@
     width: 44px !important;
     left: -20px !important;
     z-index: 10 !important;
-    background: #49bce2 !important;
+    background: #f5f5f5 !important;
     opacity: 0.7;
+    border: 1px solid orange !important;
     border-radius: 10px;
     &:hover{
         opacity: 1;
     }
+}
+.slick-prev:before, .slick-next:before{
+    font-family: 'slick' !important;
+    font-size: 20px !important;
+    line-height: 1 !important;
+    opacity: .75 !important;
+    color: orange !important;
+    -webkit-font-smoothing: antialiased !important;
 }
 .slick-next{
     height: 48px !important;
@@ -18,7 +27,8 @@
     right: -30px !important;
     z-index: 10 !important;
     margin-right: 30px !important;
-    background: #49bce2 !important;
+    border: 1px solid orange !important;
+    background: #f5f5f5 !important;
     opacity: 0.7;
     border-radius: 7px;
     &:hover{
@@ -43,18 +53,17 @@
         border-bottom: 1px solid #f5f5f5;
         height: 500px !important;
     }
-    .section-body{
-                    
+    .section-body{    
         .section-customize{
             .bg-img{
-                width: 290px;
+                width: 250px;
                 height: 170px;
-                border: 1px solid #f5f5f5;
+                border: 1px solid #49bce2;
                 background-position: center center;
                 background-repeat: no-repeat ;
                 background-color: cover;
                 background-size: #eee;
-
+                border-radius: 20px;
                 &.section-specialty{
                     // background-image: url('../../assets/specialty/noi-khoa.jpg');
                 }
@@ -68,12 +77,9 @@
                     height: 120px;
                     border-radius: 50%;
                 }
-                &.section-handbook{
-                    background-image: url('../../assets/handbook/tieu-duong-tuyp-2-nen-va-khong-nen-an-gi-p2-utube.png');
-                }
-
-                
-                
+                // &.section-handbook{
+                //     background-image: url('../../assets/handbook/tieu-duong-tuyp-2-nen-va-khong-nen-an-gi-p2-utube.png');
+                // }
             }           
         }  
     }  
@@ -130,9 +136,10 @@
         cursor: pointer;
 
         .customize-border{
-            border: 1px solid orange;
+            border: 1px solid #45c3d2;
             padding: 20px;
-           
+            margin-right: 20px;
+            border-radius: 20px;
         }
     }
 }

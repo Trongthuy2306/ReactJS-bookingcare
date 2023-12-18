@@ -73,7 +73,7 @@ class ManagePatient extends Component {
         this.setState({
             isShowLoading: true
         })
-        return;
+
         let res = await postSendRemedy({
             email: dataChild.email,
             imgBase64: dataChild.imgBase64,
@@ -100,9 +100,6 @@ class ManagePatient extends Component {
             console.log('Error send remedy: ', res)
         }
     }
-    handleBtnRemedy = () => {
-
-    }
     componentDidUpdate(prevProps, prevState, snapshot) {
         if (this.props.language !== prevProps.language) {
 
@@ -125,7 +122,7 @@ class ManagePatient extends Component {
                             Quản lý bệnh nhân khám bệnh
                         </div>
                         <div className='manage-patient-body row'>
-                            <div className='col-4 form-group'>
+                            <div className='col-2 form-group'>
                                 <label>Chọn ngày khám</label>
                                 <DatePicker
                                     onChange={this.handleOnchangeDatePicker}
@@ -144,6 +141,7 @@ class ManagePatient extends Component {
                                             <th>Giới tính</th>
                                             <th>Actions</th>
                                         </tr>
+
                                         {dataPatient && dataPatient.length > 0 ?
                                             dataPatient.map((item, index) => {
                                                 let time = language === LANGUAGES.VI ?
@@ -161,9 +159,6 @@ class ManagePatient extends Component {
                                                             <button className='mp-btn-confirm'
                                                                 onClick={() => this.handleBtnConfirm(item)}
                                                             >Xác nhận</button>
-                                                            <button className='mp-btn-remedy'
-                                                                onClick={() => this.handleBtnRemedy()}
-                                                            >Gửi hóa đơn</button>
                                                         </td>
                                                     </tr>
                                                 )

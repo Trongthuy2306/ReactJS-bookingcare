@@ -16,6 +16,26 @@ class HomeHeader extends Component {
             this.props.history.push('/home')
         }
     }
+    handleViewAllSpecialty = () => {
+        if (this.props.history) {
+            this.props.history.push(`/all-specialty`)
+        }
+    }
+    handleViewAllClinic = () => {
+        if (this.props.history) {
+            this.props.history.push(`/all-clinic`)
+        }
+    }
+    handleViewAllDoctor = () => {
+        if (this.props.history) {
+            this.props.history.push(`/all-doctor`)
+        }
+    }
+    handleSupport = () => {
+        if (this.props.history) {
+            this.props.history.push(`/support`)
+        }
+    }
     render() {
         let language = this.props.language;
         return (
@@ -27,25 +47,25 @@ class HomeHeader extends Component {
                             <img className="header-logo" src={logo} onClick={() => { this.returnToHome() }} />
                         </div>
                         <div className="center-content">
-                            <div className="child-content">
-                                <div><b><FormattedMessage id="home-header.speciality" /></b></div>
+                            <div className="child-content" onClick={() => this.handleViewAllSpecialty()}>
+                                <div ><b><FormattedMessage id="home-header.speciality" /></b></div>
                                 <div className="subs-title"><FormattedMessage id="home-header.searchdoctor" /></div>
                             </div>
-                            <div className="child-content">
-                                <div><b><FormattedMessage id="home-header.health-facility" /></b></div>
+                            <div className="child-content" onClick={() => this.handleViewAllClinic()}>
+                                <div ><b><FormattedMessage id="home-header.health-facility" /></b></div>
                                 <div className="subs-title"><FormattedMessage id="home-header.select-room" /></div>
                             </div>
-                            <div className="child-content">
-                                <div><b><FormattedMessage id="home-header.doctor" /></b></div>
+                            <div className="child-content" onClick={() => this.handleViewAllDoctor()}>
+                                <div ><b><FormattedMessage id="home-header.doctor" /></b></div>
                                 <div className="subs-title"><FormattedMessage id="home-header.select-doctor" /></div>
                             </div>
-                            <div className="child-content">
+                            {/* <div className="child-content">
                                 <div><b><FormattedMessage id="home-header.fee" /></b></div>
                                 <div className="subs-title"><FormattedMessage id="home-header.check-health" /></div>
-                            </div>
+                            </div> */}
                         </div>
                         <div className="right-content">
-                            <div className="support"><i className="fas fa-question-circle"></i>
+                            <div className="support" onClick={() => this.handleSupport()}><i className="fas fa-question-circle"></i>
                                 <FormattedMessage id="home-header.support" />
                             </div>
                             <div className={language === LANGUAGES.VI ? 'active language-vi ' : 'language-vi '}><span onClick={() => this.changeLanguage(LANGUAGES.VI)}>VN</span></div>
@@ -58,10 +78,10 @@ class HomeHeader extends Component {
                         <div className="content-up">
                             <div className="title1"><FormattedMessage id="banner.title1" /></div>
                             <div className="title2"><b><FormattedMessage id="banner.title2" /></b></div>
-                            <div className="search">
+                            {/* <div className="search">
                                 <i className="fas fa-search"></i>
                                 <input tyle="text" placeholder="Tìm chuyên khoa" />
-                            </div>
+                            </div> */}
                         </div>
                         <div className="content-down">
 
@@ -72,11 +92,11 @@ class HomeHeader extends Component {
                                     <div className="text-child"><b><FormattedMessage id="banner.child1" /></b></div>
                                 </div>
 
-                                <div className="options-child">
+                                {/* <div className="options-child">
                                     <div className="icon-child">
                                         <i className="fas fa-mobile-alt"></i></div>
                                     <div className="text-child"><b><FormattedMessage id="banner.child2" /></b></div>
-                                </div>
+                                </div> */}
 
                                 <div className="options-child">
                                     <div className="icon-child">

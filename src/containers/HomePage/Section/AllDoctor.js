@@ -5,7 +5,8 @@ import Slider from 'react-slick';
 import * as actions from '../../../store/actions';
 import { LANGUAGES } from '../../../utils';
 import { withRouter } from 'react-router'
-class OutStandingDoctor extends Component {
+import HomeHeader from '../HomeHeader';
+class AllDoctor extends Component {
 
     constructor(props) {
         super(props)
@@ -23,11 +24,6 @@ class OutStandingDoctor extends Component {
     componentDidMount() {
         this.props.loadTopDoctors()
     }
-    handleViewAllDoctor = () => {
-        if (this.props.history) {
-            this.props.history.push(`/all-doctor`)
-        }
-    }
     handleViewDetailDoctor = (doctor) => {
         if (this.props.history) {
             this.props.history.push(`/detail-doctor/${doctor.id}`)
@@ -39,18 +35,16 @@ class OutStandingDoctor extends Component {
         arrDoctors = arrDoctors.concat(arrDoctors).concat(arrDoctors);
         // console.log('arr Doctor: ', arrDoctors)
         return (
-            <div className='section-share section-outstanding-doctor'>
-                <div className='section-container'>
-                    <div className='section-header'>
-                        <span className='title-section'>
-                            <FormattedMessage id='homepage.outstanding-doctor' />
-                        </span>
-                        <button className='btn-section' onClick={() => this.handleViewAllDoctor()}>
-                            <FormattedMessage id='homepage.more-infor' />
-                        </button>
-                    </div>
-                    <div className='section-body'>
-                        <Slider {...this.props.settings}>
+            <>
+                <HomeHeader />
+                <div className='section-share '>
+                    <div className='section-container'>
+                        <div className='section-header'>
+                            <span className='title-section'>
+                                <FormattedMessage id='homepage.outstanding-doctor' />
+                            </span>
+                        </div>
+                        <div className='section-body'>
                             {arrDoctors && arrDoctors.length > 0 &&
                                 arrDoctors.map((item, index) => {
                                     let imageBase64 = '';
@@ -61,24 +55,25 @@ class OutStandingDoctor extends Component {
                                     let nameEn = `${item.positionData.valueEn}, ${item.firstName} ${item.lastName} `;
                                     return (
                                         <div className="section-customize" key={index} onClick={() => this.handleViewDetailDoctor(item)}>
-                                            <div className='customize-border'>
-                                                <div className='outer-bg'>
-                                                    <div className="bg-img section-outstanding-doctor"
+                                            <div className=''>
+                                                <div className=''>
+                                                    <div className="bg-img "
                                                         style={{ backgroundImage: `url(${imageBase64})` }} />
                                                 </div>
-                                                <div className='position text-center'>
+                                                <div className='position '>
                                                     <div>{language === LANGUAGES.VI ? nameVi : nameEn}</div>
                                                 </div>
+                                                <hr />
                                             </div>
                                         </div>
                                     );
                                 })
                             }
-                        </Slider>
-                    </div>
+                        </div>
 
+                    </div>
                 </div>
-            </div>
+            </>
         );
     }
 
@@ -98,4 +93,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(OutStandingDoctor));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(AllDoctor));

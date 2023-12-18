@@ -4,7 +4,7 @@ import HomeHeader from './HomeHeader';
 import Specialty from './Section/Specialty';
 import Medicalfacility from './Section/Medicalfacility';
 import OutStandingDoctor from './Section/OutStandingDoctor';
-import HandBook from './Section/HandBook';
+// import HandBook from './Section/HandBook';
 import About from './Section/About';
 import HomeFooter from './Section/HomeFooter';
 
@@ -33,9 +33,9 @@ class HomePage extends Component {
                 <OutStandingDoctor
                     settings={settings}
                 />
-                <HandBook
+                {/* <HandBook
                     settings={settings}
-                />
+                /> */}
                 <About />
                 <HomeFooter />
             </div>

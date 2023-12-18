@@ -2,9 +2,9 @@ export const adminMenu = [
     { //hệ thống
         name: 'menu.admin.manage-user',
         menus: [
-            {
-                name: 'menu.admin.crud', link: '/system/user-manage'
-            },
+            // {
+            //     name: 'menu.admin.crud', link: '/system/user-manage'
+            // },
             {
                 name: 'menu.admin.crud-redux', link: '/system/user-redux'
             },
@@ -35,14 +35,14 @@ export const adminMenu = [
             },
         ]
     },
-    {// quan li cam nang
-        name: 'menu.admin.handbook',
-        menus: [
-            {
-                name: 'menu.admin.manage-handbook', link: '/system/manage-handbook'
-            }
-        ]
-    }
+    // {// quan li cam nang
+    //     name: 'menu.admin.handbook',
+    //     menus: [
+    //         {
+    //             name: 'menu.admin.manage-handbook', link: '/system/manage-handbook'
+    //         }
+    //     ]
+    // }
 ];
 
 export const doctorMenu = [

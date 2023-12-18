@@ -4,13 +4,14 @@ export const path = {
     LOGIN: '/login',
     LOG_OUT: '/logout',
     SYSTEM: '/system',
-    ALL_SEPCIALTY: '/specialty',
-    ALL_CLINIC: '/clinic',
-    ALL_DOCTOR: '/doctor',
+    ALL_SEPCIALTY: '/all-specialty',
+    ALL_CLINIC: '/all-clinic',
+    ALL_DOCTOR: '/all-doctor',
     DETAIL_DOCTOR: '/detail-doctor/:id',
     DETAIL_SPECIALTY: '/detail-specialty/:id',
     DETAIL_CLINIC: '/detail-clinic/:id',
     VERIFY_EMAIL_BOOKING: '/verify-booking',
+    SUPPORT: '/support'
 };
 
 export const LANGUAGES = {
