@@ -1,0 +1,114 @@
+.custom-title-section {
+  display: flex;
+  justify-content: center;
+  text-transform: uppercase;
+  padding-top: 20px;
+  font-weight: bold;
+  font-size: 24px;
+}
+.custom-section-body {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+
+  .custom-section-customize {
+    width: calc(25% - 20px);
+    margin-bottom: 20px;
+    
+    position: relative;
+    padding-top: 50px;
+    padding-left: 70px;
+    &:nth-child(2n) {
+      margin-right: 20px;
+    }
+
+    .custom-img-container {
+      
+      position: relative;
+      width: 225px;
+      height: 225px;
+      overflow: hidden;
+      border: 2px solid #49bce2;
+      margin-bottom: 10px;
+      border-radius: 25%;
+
+      .custom-bg-img {
+        width: 100%;
+        height: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        cursor: pointer;
+        transition: transform 0.3s; 
+  
+        &:hover {
+          transform: scale(1.2); 
+        }
+      }
+    }
+
+    .custom-info {
+      position: absolute;
+      top: 0;
+      right: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      padding: 10px;
+      color: #fff;
+      background-color: rgba(0, 0, 0, 0.5);
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .custom-position {
+      margin-top: 10px;
+      padding-left: 20px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+  }
+}
+
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-left: 75%;
+
+  input {
+    padding: 8px;
+    border: none;
+    border-radius: 4px 0 0 4px;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: 1px solid #49bce2;
+    &:focus {
+      outline: none;
+      border-color: blue;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      
+    }
+
+    &::placeholder {
+      color: gray;
+    }
+  }
+
+  button {
+    padding: 8px 12px;
+    background-color: blue;
+    color: white;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border: 1px solid #49bce2;
+    &:hover {
+      background-color: darken(blue, 10%);
+    }
+  }
+}

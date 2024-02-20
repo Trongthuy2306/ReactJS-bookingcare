@@ -89,7 +89,7 @@ class ManagePatient extends Component {
                 isShowLoading: false
             })
 
-            toast.success('Send Remedy succeeds:');
+            toast.success('Gửi đơn thuốc thành công!');
             this.closeRemedyModal();
             await this.getDataPatient();
         } else {
@@ -148,17 +148,26 @@ class ManagePatient extends Component {
                                                     item.timeTypeDataPatient.valueVi : item.timeTypeDataPatient.valueEn;
                                                 let gender = language === LANGUAGES.VI ?
                                                     item.patientData.genderData.valueVi : item.patientData.genderData.valueEn;
+                                                // let status = language === LANGUAGES.VI ?
+                                                //     item.statusId.valueVi : item.statusId.valueEn;
+                                                // console.log('check status Vi: ', status)
                                                 return (
                                                     <tr key={index}>
                                                         <td>{index + 1}</td>
-                                                        <td>{item.timeTypeDataPatient.valueVi}</td>
+                                                        <td>{time}</td>
                                                         <td>{item.patientData.firstName}</td>
                                                         <td>{item.patientData.address}</td>
-                                                        <td>{item.patientData.genderData.valueVi}</td>
+                                                        <td>{gender}</td>
                                                         <td>
-                                                            <button className='mp-btn-confirm'
-                                                                onClick={() => this.handleBtnConfirm(item)}
-                                                            >Xác nhận</button>
+                                                            {item.statusId === 's2' ?
+                                                                <button className='btn btn-warning'
+                                                                    onClick={() => this.handleBtnConfirm(item)}
+                                                                >Lịch hẹn mới</button>
+                                                                :
+                                                                <button className='btn btn-primary'
+                                                                // onClick={() => this.handleBtnConfirm(item)}
+                                                                >Đã khám xong</button>
+                                                            }
                                                         </td>
                                                     </tr>
                                                 )

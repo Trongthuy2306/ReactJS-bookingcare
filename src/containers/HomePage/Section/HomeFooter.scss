@@ -1,0 +1,60 @@
+.home-footer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: #49bce2;
+    color: #fff;
+    padding: 20px;
+    align-items: center;
+  }
+  
+  .left-section {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+  }
+  
+  .right-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+  
+  .company-name {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .company-address,
+  .company-info,
+  .contact,
+  .office-title,
+  .office-address {
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+  
+  .icon {
+    margin-right: 5px;
+  }
+  
+  .social-icons {
+    display: flex;
+   
+  }
+  
+  .social-icons a {
+    margin-right: 10px;
+  }
+  
+  .facebook-icon {
+    color: #3b5998;
+  }
+  
+  .twitter-icon {
+    color: #1da1f2;
+  }
+  
+  .instagram-icon {
+    color: #e1306c;
+  }
